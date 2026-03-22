@@ -1,0 +1,25 @@
+{
+  "name": "tuition-estimator-codex",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@rds-vue-ui/form-checkbox": "^0.2.0",
+    "@rds-vue-ui/rds-theme-base": "^0.7.1",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^26.1.0",
+    "sass-embedded": "^1.98.0",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
+  }
+}
