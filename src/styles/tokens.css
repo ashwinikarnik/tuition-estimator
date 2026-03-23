@@ -196,6 +196,14 @@ select:disabled {
   color: #8c95a6;
 }
 
+.estimator-dropdown {
+  width: 100%;
+}
+
+.estimator-dropdown .dropdown-toggle-apollo {
+  width: 100%;
+}
+
 .small-copy {
   margin: 0;
   color: var(--rds-color-muted);
@@ -239,80 +247,6 @@ select:disabled {
   display: flex;
   flex-wrap: wrap;
   gap: var(--rds-space-3);
-}
-
-.btn {
-  border: 0;
-  border-radius: var(--rds-radius-sm);
-  padding: 0.72rem 1rem;
-  font-size: 0.95rem;
-  font-weight: 800;
-  line-height: 1.2;
-  cursor: pointer;
-  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
-}
-
-.btn:focus-visible {
-  outline: 2px solid var(--rds-color-accent);
-  outline-offset: 2px;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: var(--rds-color-primary);
-}
-
-.btn-primary:hover {
-  background-color: var(--rds-color-primary-hover);
-}
-
-.btn-secondary {
-  color: #fff;
-  background-color: #4b5563;
-}
-
-.btn-secondary:hover {
-  background-color: #374151;
-}
-
-.btn-outline-primary {
-  border: 1px solid var(--rds-color-primary);
-  color: var(--rds-color-primary);
-  background: transparent;
-}
-
-.btn-outline-primary:hover {
-  background-color: #f7edf1;
-}
-
-.btn-dark-3 {
-  color: #fff;
-  background-color: #1f2937;
-}
-
-.btn-dark-3:hover {
-  background-color: #111827;
-}
-
-.btn:disabled {
-  cursor: not-allowed;
-  color: #fff;
-  border-color: transparent;
-  background-color: #a5aab4;
-}
-
-.btn-sm {
-  padding: 0.55rem 0.85rem;
-  font-size: 0.86rem;
-}
-
-.btn-lg {
-  padding: 0.85rem 1.15rem;
-  font-size: 1rem;
-}
-
-.btn-block {
-  width: 100%;
 }
 
 .results {
