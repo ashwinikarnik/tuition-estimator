@@ -13,44 +13,83 @@
             <div class="form-grid">
               <label>
                 Student type
-                <select v-model="form.level" @change="onLevelChange">
-                  <option value="">Select...</option>
-                  <option v-for="level in STUDENT_LEVELS" :key="level.value" :value="level.value">{{ level.label }}</option>
-                </select>
+                <DropdownApollo
+                  v-model:selected-values="levelSelectedValues"
+                  button-text="Select..."
+                  button-width="100%"
+                  class="estimator-dropdown"
+                  :clearable="false"
+                >
+                  <DropdownItemApollo v-for="level in STUDENT_LEVELS" :key="level.value" :value="level.value">
+                    {{ level.label }}
+                  </DropdownItemApollo>
+                </DropdownApollo>
               </label>
 
               <label>
                 Degree
-                <select v-model="form.degree" :disabled="!form.level">
-                  <option value="">Select online degree...</option>
-                  <option v-for="degree in degreeOptions" :key="degree.value" :value="degree.value">{{ degree.label }}</option>
-                </select>
+                <DropdownApollo
+                  v-model:selected-values="degreeSelectedValues"
+                  button-text="Select online degree..."
+                  button-width="100%"
+                  class="estimator-dropdown"
+                  :disabled="!form.level"
+                  :clearable="false"
+                >
+                  <DropdownItemApollo v-for="degree in degreeOptions" :key="degree.value" :value="degree.value">
+                    {{ degree.label }}
+                  </DropdownItemApollo>
+                </DropdownApollo>
               </label>
 
               <label>
                 Residency
-                <select v-model="form.residency" :disabled="!form.level">
-                  <option value="">Select...</option>
-                  <option v-for="residency in RESIDENCIES" :key="residency.value" :value="residency.value">{{ residency.label }}</option>
-                </select>
+                <DropdownApollo
+                  v-model:selected-values="residencySelectedValues"
+                  button-text="Select..."
+                  button-width="100%"
+                  class="estimator-dropdown"
+                  :disabled="!form.level"
+                  :clearable="false"
+                >
+                  <DropdownItemApollo
+                    v-for="residency in RESIDENCIES"
+                    :key="residency.value"
+                    :value="residency.value"
+                  >
+                    {{ residency.label }}
+                  </DropdownItemApollo>
+                </DropdownApollo>
               </label>
 
               <template v-if="showUndergradAidFields">
                 <label>
                   Are you a dependent student?
-                  <select v-model="form.dependencyStatus">
-                    <option value="">Select...</option>
-                    <option value="dependent">Yes</option>
-                    <option value="independent">No</option>
-                  </select>
+                  <DropdownApollo
+                    v-model:selected-values="dependencyStatusSelectedValues"
+                    button-text="Select..."
+                    button-width="100%"
+                    class="estimator-dropdown"
+                    :clearable="false"
+                  >
+                    <DropdownItemApollo value="dependent">Yes</DropdownItemApollo>
+                    <DropdownItemApollo value="independent">No</DropdownItemApollo>
+                  </DropdownApollo>
                 </label>
 
                 <label>
                   Completed credits
-                  <select v-model.number="form.completedCreditBand">
-                    <option value="">Select...</option>
-                    <option v-for="band in COMPLETED_CREDIT_BANDS" :key="band.value" :value="band.value">{{ band.label }}</option>
-                  </select>
+                  <DropdownApollo
+                    v-model:selected-values="completedCreditBandSelectedValues"
+                    button-text="Select..."
+                    button-width="100%"
+                    class="estimator-dropdown"
+                    :clearable="false"
+                  >
+                    <DropdownItemApollo v-for="band in COMPLETED_CREDIT_BANDS" :key="band.value" :value="band.value">
+                      {{ band.label }}
+                    </DropdownItemApollo>
+                  </DropdownApollo>
                 </label>
               </template>
             </div>
@@ -95,8 +134,8 @@
           <p v-if="validationMessage" class="error-message">{{ validationMessage }}</p>
 
           <div class="cta-row">
-            <RdsButton type="submit" :disabled="!isReadyToEstimate">Estimate my costs</RdsButton>
-            <RdsButton type="button" variant="outline-primary" @click="resetForm">Start over</RdsButton>
+            <button type="submit" class="btn btn-primary" :disabled="!isReadyToEstimate">Estimate my costs</button>
+            <button type="button" class="btn btn-outline-primary" @click="resetForm">Start over</button>
           </div>
         </form>
 
@@ -171,8 +210,9 @@ import {
   STUDENT_LEVELS
 } from '../config/estimatorConfig';
 import { formatCurrency, getFullTimeThreshold, runEstimate } from '../composables/useLoanEstimator';
-import RdsButton from './rds/RdsButton.vue';
 import { FormCheckbox } from '@rds-vue-ui/form-checkbox';
+import { DropdownApollo } from '@rds-vue-ui/dropdown-apollo';
+import DropdownItemApollo from '@rds-vue-ui/dropdown-apollo/DropdownItemApollo.vue';
 
 const initialState = () => ({
   level: '',
@@ -192,8 +232,52 @@ const form = reactive(initialState());
 const validationMessage = ref('');
 const estimate = ref(null);
 
+const toSelectedValues = (value) => {
+  return value === '' || value === undefined || value === null ? [] : [value];
+};
+
+const toSingleSelectedValue = (values) => {
+  return values?.length ? values[0] : '';
+};
+
 const degreeOptions = computed(() => DEGREE_OPTIONS[form.level] ?? []);
 const showUndergradAidFields = computed(() => form.level === 'ug');
+const levelSelectedValues = computed({
+  get: () => toSelectedValues(form.level),
+  set: (values) => {
+    const nextLevel = String(toSingleSelectedValue(values));
+    if (nextLevel === form.level) {
+      return;
+    }
+    form.level = nextLevel;
+    onLevelChange();
+  }
+});
+const degreeSelectedValues = computed({
+  get: () => toSelectedValues(form.degree),
+  set: (values) => {
+    form.degree = String(toSingleSelectedValue(values));
+  }
+});
+const residencySelectedValues = computed({
+  get: () => toSelectedValues(form.residency),
+  set: (values) => {
+    form.residency = String(toSingleSelectedValue(values));
+  }
+});
+const dependencyStatusSelectedValues = computed({
+  get: () => toSelectedValues(form.dependencyStatus),
+  set: (values) => {
+    form.dependencyStatus = String(toSingleSelectedValue(values));
+  }
+});
+const completedCreditBandSelectedValues = computed({
+  get: () => toSelectedValues(form.completedCreditBand),
+  set: (values) => {
+    const selectedValue = toSingleSelectedValue(values);
+    form.completedCreditBand = selectedValue === '' ? '' : Number(selectedValue);
+  }
+});
 const selectedSemesterIds = computed(() =>
   SEMESTERS.filter((semester) => form.semesters[semester.id]).map((semester) => semester.id)
 );

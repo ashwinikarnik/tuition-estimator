@@ -10,8 +10,11 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@floating-ui/vue": "^1.1.8",
+    "@rds-vue-ui/dropdown-apollo": "^0.1.0",
     "@rds-vue-ui/form-checkbox": "^0.2.0",
     "@rds-vue-ui/rds-theme-base": "^0.7.1",
+    "@vueuse/core": "^13.9.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
