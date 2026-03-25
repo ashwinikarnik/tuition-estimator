@@ -13,8 +13,8 @@ Updated `src/config/estimatorConfig.js` to generate `TUITION_RATES` dynamically 
 ### Generation approach
 
 - For each valid program (`level` in `ug`/`grad`), rate tables are generated for:
-  - `az` residency
-  - `nonaz` residency
+  - `RES` residency
+  - `NONRES` residency
 - Credit keys are generated from `1` to `18`.
 - A capped billable-credit model is used (`cappedCredit: 12`) to keep tuition schedules bounded and deterministic.
 - Per-credit base values vary by level (`ug` vs `grad`) and index within level so all programs receive stable but distinct tuition profiles.

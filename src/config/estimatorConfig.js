@@ -16,8 +16,8 @@ export const STUDENT_LEVELS = [
 ];
 
 export const RESIDENCIES = [
-  { value: 'az', label: 'Arizona resident' },
-  { value: 'nonaz', label: 'Out-of-state resident' }
+  { value: 'RES', label: 'Arizona resident' },
+  { value: 'NONRES', label: 'Out-of-state resident' }
 ];
 
 export const COMPLETED_CREDIT_BANDS = [
@@ -85,8 +85,8 @@ function buildProgramRate(program, indexWithinLevel) {
   const baseNonAzPerCredit = level === 'ug' ? 920 + levelOffset * 24 : 760 + levelOffset * 28;
 
   return {
-    az: buildTuitionBracket({ perCredit: baseAzPerCredit, cappedCredit: 12 }),
-    nonaz: buildTuitionBracket({ perCredit: baseNonAzPerCredit, cappedCredit: 12 })
+    RES: buildTuitionBracket({ perCredit: baseAzPerCredit, cappedCredit: 12 }),
+    NONRES: buildTuitionBracket({ perCredit: baseNonAzPerCredit, cappedCredit: 12 })
   };
 }
 

@@ -53,7 +53,7 @@ describe('loan estimator math', () => {
 
     const tuition = computeTuitionPerSemester({
       degree: FIRST_UG_PROGRAM_ID,
-      residency: 'az',
+      residency: 'RES',
       creditsPerSemester: 6
     });
 
@@ -66,14 +66,14 @@ describe('loan estimator math', () => {
 
     const tuitionPerSemester = computeTuitionPerSemester({
       degree: FIRST_UG_PROGRAM_ID,
-      residency: 'az',
+      residency: 'RES',
       creditsPerSemester: 6
     });
 
     const estimate = runEstimate({
       level: 'ug',
       degree: FIRST_UG_PROGRAM_ID,
-      residency: 'az',
+      residency: 'RES',
       dependencyStatus: 'independent',
       completedCreditBand: 3,
       selectedSemesterIds: ['fall', 'spring'],
@@ -90,14 +90,14 @@ describe('loan estimator math', () => {
 
     const tuitionPerSemester = computeTuitionPerSemester({
       degree: FIRST_GRAD_PROGRAM_ID,
-      residency: 'nonaz',
+      residency: 'NONRES',
       creditsPerSemester: 8
     });
 
     const estimate = runEstimate({
       level: 'grad',
       degree: FIRST_GRAD_PROGRAM_ID,
-      residency: 'nonaz',
+      residency: 'NONRES',
       dependencyStatus: '',
       completedCreditBand: 0,
       selectedSemesterIds: ['fall', 'spring'],
