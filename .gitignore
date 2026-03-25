@@ -3,3 +3,5 @@ dist/
 .DS_Store
 .yarn-cache/
 coverage/
+.env.local
+.env.*.local

@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "sync:programs": "node scripts/syncPrograms.mjs",
+    "mcp:programs": "node mcp/programs-mcp-server.mjs"
   },
   "dependencies": {
     "@floating-ui/vue": "^1.1.8",

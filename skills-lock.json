@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "skills": {
+    "button-play-apollo-skill": {
+      "source": "ashwinikarnik/rds-skills",
+      "sourceType": "github",
+      "computedHash": "a7e97ae707f416c104a1dc8f891e4b81db6bf9bada5b8f81e713044ee930f99e"
+    },
+    "button-skill": {
+      "source": "ashwinikarnik/rds-skills",
+      "sourceType": "github",
+      "computedHash": "ecaea499d89f64b90a45aea68e67024a58115938c403526e6be5ace54632c337"
+    },
+    "form-checkbox-skill": {
+      "source": "ashwinikarnik/rds-skills",
+      "sourceType": "github",
+      "computedHash": "366faeebf60aa709ad37635d0b0af572e854efe38c2a7fb76fe7fe18eff71ea9"
+    }
+  }
+}

@@ -1,0 +1,436 @@
+{
+  "generatedAt": "2026-03-23T04:01:21.509Z",
+  "source": "allPrograms",
+  "programs": [
+    {
+      "id": "599ebc39_9f2e_432e_91a8_7c93836dd475",
+      "label": "Accountancy and Data Analytics (MACC)",
+      "level": "grad"
+    },
+    {
+      "id": "c03d9744_327f_43e2_983f_616fab3da0f0",
+      "label": "Addiction Psychology (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "5fadfa8c_64c7_4b95_8c44_1f9bb7419044",
+      "label": "Aging (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "36abd485_b2a5_4bf0_ae64_121b545a9dc6",
+      "label": "Architecture (MArch)",
+      "level": "grad"
+    },
+    {
+      "id": "0d821503_28a8_41fe_b785_5f1b993af16a",
+      "label": "Artificial Intelligence in Business (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "9e4aca31_8e32_4414_9bb6_ebdaf428662a",
+      "label": "Behavioral Health – Clinical (DBH)",
+      "level": "grad"
+    },
+    {
+      "id": "75acf918_b516_4f79_8a54_24755809048f",
+      "label": "Behavioral Health (Management) (DBH)",
+      "level": "grad"
+    },
+    {
+      "id": "a6a51ba5_89b2_4e7e_8dec_8632a7eacc96",
+      "label": "Biological Data Science (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "05299e1c_6ad7_49e7_8069_ff8db172212e",
+      "label": "Biology (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "17148f5c_c35b_4db2_8164_1c75bd7b8621",
+      "label": "Biomedical Diagnostics (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "0c3281f2_e348_4ef0_969c_99267d7f8c69",
+      "label": "Biomimicry (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "1273e474_ab6a_4810_9def_ce2c3a6a61de",
+      "label": "Biostatistics (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "6a26d04f_7c40_4bbf_a0ac_5fd4779a3e07",
+      "label": "Business Analytics (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "9d010031_78f7_4a53_91dd_c4a19f67a24f",
+      "label": "Business Law (MLS)",
+      "level": "grad"
+    },
+    {
+      "id": "79d4af5c_336f_49e2_a6f7_fd77855f18ca",
+      "label": "Clinical Research Management – Regulatory Science (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "92fb83dd_f54c_4737_82f7_986b0f7f04ad",
+      "label": "Clinical Research Management (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "833d3580_e541_4518_a063_f455cabda41a",
+      "label": "Coastal and Marine Science and Management (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "49d2bc2c_e149_400d_8618_ce14d8ed1483",
+      "label": "Communication (MA)",
+      "level": "grad"
+    },
+    {
+      "id": "97731407_c2fe_42ad_abf9_bdcf0de6e564",
+      "label": "Complex Systems Science (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "9312df4a_1bdb_4cdc_afa2_5a8f72441eb0",
+      "label": "Computational Life Sciences (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "4bf82365_b938_49b4_8c7e_65bb5152f6bd",
+      "label": "Computer Science – Big Data Systems (MCS)",
+      "level": "grad"
+    },
+    {
+      "id": "2c5fde24_8dfa_413e_a3dc_0224a0bf2063",
+      "label": "Computer Science – Cybersecurity (MCS)",
+      "level": "grad"
+    },
+    {
+      "id": "ad601d3e_6d56_4837_90bb_5415f8facb14",
+      "label": "Computer Science (MCS)",
+      "level": "grad"
+    },
+    {
+      "id": "bde6be5e_b31c_4e6e_9add_a8ebd6a22ce1",
+      "label": "Conflict Resolution (MLS)",
+      "level": "grad"
+    },
+    {
+      "id": "da2dba37_e18e_4b75_ab12_32dcdbd3beec",
+      "label": "Construction Law (MLS)",
+      "level": "grad"
+    },
+    {
+      "id": "2da4e886_1fb7_45dd_957e_704fc6ffa262",
+      "label": "Construction Management and Technology (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "c25c8e54_5363_45c9_ae5a_8c97c16e8170",
+      "label": "Contract Management (MLS)",
+      "level": "grad"
+    },
+    {
+      "id": "67760207_9e8d_47b0_bbb2_171dc04a0b22",
+      "label": "Corporate and Health Care Compliance (MLS)",
+      "level": "grad"
+    },
+    {
+      "id": "b8e2bc6d_34fb_42b9_8f09_262df0d09250",
+      "label": "Counseling (MC)",
+      "level": "grad"
+    },
+    {
+      "id": "3f7aad82_d4a3_4863_908f_a32e071aeff8",
+      "label": "Crime Analysis (MS)",
+      "level": "grad"
+    },
+    {
+      "id": "dfc32d93_3f07_487f_afea_2e902effb4a4",
+      "label": "Accountancy (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "51a98567_e97b_48a5_8a9a_96d72d37c4f8",
+      "label": "African and African American Studies (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "4a2cb176_e224_4632_b4fe_7f95bfe886fb",
+      "label": "Anthropology (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "a636abfe_913f_4ba7_9adf_5b8aa8fc821d",
+      "label": "Anthropology (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "c52f14f5_c84a_4356_befc_a9d23130a9b9",
+      "label": "Applied Biological Sciences – Pre-Dental (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "48022683_d410_4238_9263_3214093b85d7",
+      "label": "Applied Biological Sciences – Preveterinary Medicine (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "70fcf17f_7fae_4611_a3d4_fb2ce0820201",
+      "label": "Applied Business and Technology Solutions (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "9135e48a_9a2a_40c2_829e_7eb31a846d0f",
+      "label": "Applied Leadership (BAS)",
+      "level": "ug"
+    },
+    {
+      "id": "300c9a4b_dd18_464d_ab0b_f1bdfbc0cc10",
+      "label": "Applied Military and Veteran Studies (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "5dfabfce_e1f3_4d5e_bc42_b051405a322c",
+      "label": "Applied Nutrition and Health (BAS)",
+      "level": "ug"
+    },
+    {
+      "id": "fe190b36_625a_4f5e_a7a9_7b83b6da5303",
+      "label": "Applied Nutrition and Health (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "090d5779_3222_4b12_98c2_1d8db68e0d3f",
+      "label": "Architectural Studies (BSD)",
+      "level": "ug"
+    },
+    {
+      "id": "03071d6e_4c91_42b0_8d34_6e8316fc09f0",
+      "label": "Art – Art Studies (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "db52e6de_c2e2_4f53_8a0b_b83a06380cb8",
+      "label": "Art (Digital Photography) (BFA)",
+      "level": "ug"
+    },
+    {
+      "id": "f0210746_48b3_4815_9080_aebab32f12f9",
+      "label": "Art BA - Museum and Curatorial Practices",
+      "level": "ug"
+    },
+    {
+      "id": "6f0483ca_a23c_4b3f_bd7a_d68e9064273e",
+      "label": "Art History (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "5791d1e1_28a1_4a02_9b9c_4f6b0624377f",
+      "label": "Artificial Intelligence in Business (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "be862a78_4ba9_4ca5_8d81_5a800c1a10cb",
+      "label": "Astronomical and Planetary Sciences (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "ba2daab9_f1ea_48fa_9c98_cc43148e4f15",
+      "label": "Biochemistry – Medicinal Chemistry (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "12414f0c_3353_4fec_9457_82984dda15d9",
+      "label": "Biochemistry (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "1f52e75b_5f2f_4d3b_b56b_2ec5353cd5ee",
+      "label": "Biochemistry (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "52f01904_42f1_47a7_8410_d0a707e8f5a0",
+      "label": "Biological Sciences – Biology and Society (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "87baed7c_5eea_40cb_94b2_01b6891c2c06",
+      "label": "Biological Sciences – Biomedical Sciences (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "8a697722_2e2d_47ed_a923_392342ca2462",
+      "label": "Biological Sciences – Conservation Biology and Ecology (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "e375b903_0f03_4ea1_99a7_735efc3b4fee",
+      "label": "Biological Sciences – Genetics, Cell and Developmental Biology (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "337d4d85_ef09_4fe2_b4c2_07f6007343bd",
+      "label": "Biological Sciences – Neurobiology, Physiology and Behavior (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "7e6198a4_7e1b_468c_93e9_9bc6fcdca0d3",
+      "label": "Biological Sciences (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "14b16f19_ddc4_42c8_8e39_ea468fc3169f",
+      "label": "Biomedical Engineering (BSE)",
+      "level": "ug"
+    },
+    {
+      "id": "4323f418_b4f7_4474_b7d3_4baab968c43b",
+      "label": "Biophysics (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "40549f69_de5f_45d4_a357_9583b5375dc4",
+      "label": "Business – Accounting and Business Decisions (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "d2c05ecd_e790_4dc1_9923_7c790d43988d",
+      "label": "Business – Applied Supply Chains (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "dbf6b12c_7c7f_4fea_a93e_07f2d46a283c",
+      "label": "Business – Business Administration (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "ae4fb96e_e5f1_4fa3_af47_a7122d92117a",
+      "label": "Business – Communication (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "e3802f72_e18e_41da_8fc4_e84558e1e834",
+      "label": "Business – Financial Planning (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "f5cee56c_e15d_4f4c_9990_182d85b25722",
+      "label": "Business – Food Industry Management (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "b0415cd1_f072_4280_91aa_615e13f8933c",
+      "label": "Business – Global Leadership (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "1a11f915_7a39_4169_882b_7c3422089239",
+      "label": "Business – Human Resources (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "6598591d_762e_404a_8161_c028fe22001c",
+      "label": "Business – Information Security (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "8ec2863e_35b5_48e6_8b25_09cbf7726674",
+      "label": "Business – Law (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "0237857d_2b17_4b86_bb52_8842aedd87d3",
+      "label": "Business – Retail Management (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "fd8f5162_2579_4133_9265_43ee90425a65",
+      "label": "Business – Sports Business (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "63c4bec1_6498_4df2_90fe_c6fe8a0cd804",
+      "label": "Business – Sustainability (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "667d8929_180e_40c6_931a_990c0728f479",
+      "label": "Business – Tourism (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "93a0006e_af52_4339_a13a_083ea91ef85f",
+      "label": "Business Data Analytics (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "8014a375_2d77_4f52_ae22_a01e2247d1b9",
+      "label": "Chemistry (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "c3ca0326_4ce7_4c1f_8e4e_4b5e0b4bfbbc",
+      "label": "Communication (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "0af87825_f3d7_46cd_aee4_04dfcfc3c920",
+      "label": "Communication (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "7d3b938e_05c0_4d67_9117_680c416a173e",
+      "label": "Community Advocacy and Social Policy (BA)",
+      "level": "ug"
+    },
+    {
+      "id": "25926d9c_3bf3_4f0f_868a_de63092433cb",
+      "label": "Community Health (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "e06d81c3_fe48_41d9_8324_55fd71bb1139",
+      "label": "Computer Information Systems (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "10c4e474_9471_4ca2_9ea2_b10b3c4e340a",
+      "label": "Computer Science (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "8847ed41_ff57_47ed_9f03_7ec97b005ba6",
+      "label": "Construction Management and Technology (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "a4b20bdc_3595_410f_83a5_8460140a240c",
+      "label": "Counseling and Applied Psychological Science – Counseling Military Members and Veterans (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "ebc10e12_620b_4214_8ef8_705923049305",
+      "label": "Counseling and Applied Psychological Science – Sport and Performance Counseling (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "dee0385f_6cb6_4042_958b_7d7f37128d0e",
+      "label": "Counseling and Applied Psychological Science – Substance Abuse and Addictions (BS)",
+      "level": "ug"
+    },
+    {
+      "id": "b36c7095_fe86_491d_813c_e023c316f3e8",
+      "label": "Counseling and Applied Psychological Science (BS)",
+      "level": "ug"
+    }
+  ]
+}

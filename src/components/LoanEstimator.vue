@@ -16,7 +16,6 @@
                 <DropdownApollo
                   v-model:selected-values="levelSelectedValues"
                   button-text="Select..."
-                  button-width="100%"
                   class="estimator-dropdown"
                   :clearable="false"
                 >
@@ -31,7 +30,6 @@
                 <DropdownApollo
                   v-model:selected-values="degreeSelectedValues"
                   button-text="Select online degree..."
-                  button-width="100%"
                   class="estimator-dropdown"
                   :disabled="!form.level"
                   :clearable="false"
@@ -47,7 +45,6 @@
                 <DropdownApollo
                   v-model:selected-values="residencySelectedValues"
                   button-text="Select..."
-                  button-width="100%"
                   class="estimator-dropdown"
                   :disabled="!form.level"
                   :clearable="false"
@@ -68,7 +65,6 @@
                   <DropdownApollo
                     v-model:selected-values="dependencyStatusSelectedValues"
                     button-text="Select..."
-                    button-width="100%"
                     class="estimator-dropdown"
                     :clearable="false"
                   >
@@ -82,7 +78,6 @@
                   <DropdownApollo
                     v-model:selected-values="completedCreditBandSelectedValues"
                     button-text="Select..."
-                    button-width="100%"
                     class="estimator-dropdown"
                     :clearable="false"
                   >

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "tuition-programs": {
+      "command": "yarn",
+      "args": ["mcp:programs"],
+      "env": {
+        "PROGRAMS_API_KEY": "REPLACE_ME"
+      }
+    }
+  }
+}
