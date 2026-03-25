@@ -1,4 +1,4 @@
-import { POLICY, SEMESTERS, TUITION_RATES } from '../config/estimatorConfig';
+import { ACAD_YEAR_BY_SEMESTER, POLICY, SEMESTERS, TUITION_RATES } from '../config/estimatorConfig';
 
 export function formatCurrency(value) {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(
@@ -36,8 +36,36 @@ export function computePerSemesterLoan({ creditsPerSemester, annualCap, fullTime
   };
 }
 
-export function computeTuitionPerSemester({ degree, residency, creditsPerSemester }) {
-  return TUITION_RATES[degree]?.[residency]?.[creditsPerSemester] ?? null;
+function getSemesterRateRecord({ degree, residency, semesterId, creditsPerSemester }) {
+  const acadYear = ACAD_YEAR_BY_SEMESTER[semesterId];
+  if (!acadYear) return null;
+
+  const semesterRates = TUITION_RATES?.[acadYear]?.[degree]?.[residency]?.[semesterId];
+  if (!semesterRates) return null;
+
+  const creditKey = String(creditsPerSemester);
+  const tuition = semesterRates?.tuitionByCredit?.[creditKey];
+  const tuitionAndFees = semesterRates?.totalByCredit?.[creditKey];
+
+  if (!Number.isFinite(tuition) || !Number.isFinite(tuitionAndFees)) {
+    return null;
+  }
+
+  return {
+    tuition,
+    tuitionAndFees,
+    fees: Number.isFinite(semesterRates?.feesByCredit?.[creditKey])
+      ? semesterRates.feesByCredit[creditKey]
+      : Math.max(0, tuitionAndFees - tuition)
+  };
+}
+
+export function computeTuitionPerSemester({ degree, residency, creditsPerSemester, semesterId = 'fall' }) {
+  return getSemesterRateRecord({ degree, residency, semesterId, creditsPerSemester })?.tuition ?? null;
+}
+
+export function computeTuitionAndFeesPerSemester({ degree, residency, creditsPerSemester, semesterId = 'fall' }) {
+  return getSemesterRateRecord({ degree, residency, semesterId, creditsPerSemester })?.tuitionAndFees ?? null;
 }
 
 export function allocateLoanAcrossSemesters({ selectedSemesterIds, perSemesterLoan, annualCap }) {
@@ -72,9 +100,6 @@ export function runEstimate({
 
   const annualCap = getAnnualLoanCap(level, dependencyStatus, completedCreditBand);
   const fullTimeThreshold = getFullTimeThreshold(level);
-  const tuitionPerSemester = computeTuitionPerSemester({ degree, residency, creditsPerSemester });
-  if (tuitionPerSemester === null) return null;
-
   const { enrollmentRatio, perSemesterLoan } = computePerSemesterLoan({
     creditsPerSemester,
     annualCap,
@@ -88,21 +113,35 @@ export function runEstimate({
   });
 
   const rows = SEMESTERS.filter((semester) => billableSemesterIds.includes(semester.id)).map((semester) => {
-    const tuition = tuitionPerSemester;
+    const semesterRate = getSemesterRateRecord({
+      degree,
+      residency,
+      semesterId: semester.id,
+      creditsPerSemester
+    });
+    if (!semesterRate) {
+      return null;
+    }
+
+    const tuition = semesterRate.tuition;
+    const tuitionAndFees = semesterRate.tuitionAndFees;
     const loan = semesterLoanMap[semester.id] ?? 0;
-    const remainingCost = Math.max(0, tuition - loan);
+    const remainingCost = Math.max(0, tuitionAndFees - loan);
 
     return {
       id: semester.id,
       semester: semester.label,
       credits: creditsPerSemester,
       tuition,
+      tuitionAndFees,
       loan,
       remainingCost
     };
   });
+  if (rows.some((row) => row === null)) return null;
 
   const totalTuition = rows.reduce((sum, row) => sum + row.tuition, 0);
+  const totalTuitionAndFees = rows.reduce((sum, row) => sum + row.tuitionAndFees, 0);
   const totalLoan = rows.reduce((sum, row) => sum + row.loan, 0);
   const totalRemainingCost = rows.reduce((sum, row) => sum + row.remainingCost, 0);
 
@@ -112,6 +151,7 @@ export function runEstimate({
     fullTimeThreshold,
     totalCredits: rows.reduce((sum, row) => sum + row.credits, 0),
     totalTuition,
+    totalTuitionAndFees,
     totalLoan,
     totalRemainingCost,
     rows

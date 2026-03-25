@@ -1,6 +1,7 @@
 import {
   allocateLoanAcrossSemesters,
   computePerSemesterLoan,
+  computeTuitionAndFeesPerSemester,
   computeTuitionPerSemester,
   getAnnualLoanCap,
   runEstimate
@@ -10,6 +11,9 @@ import programsData from '../src/config/programs.json';
 const PROGRAMS = Array.isArray(programsData?.programs) ? programsData.programs : [];
 const FIRST_UG_PROGRAM_ID = PROGRAMS.find((program) => program.level === 'ug')?.id;
 const FIRST_GRAD_PROGRAM_ID = PROGRAMS.find((program) => program.level === 'grad')?.id;
+const FIRST_BAS_UG_PROGRAM_ID = PROGRAMS.find(
+  (program) => program.level === 'ug' && program.label?.includes('(BAS)')
+)?.id;
 
 describe('loan estimator math', () => {
   it('returns no loan below half-time enrollment', () => {
@@ -69,6 +73,11 @@ describe('loan estimator math', () => {
       residency: 'RES',
       creditsPerSemester: 6
     });
+    const tuitionAndFeesPerSemester = computeTuitionAndFeesPerSemester({
+      degree: FIRST_UG_PROGRAM_ID,
+      residency: 'RES',
+      creditsPerSemester: 6
+    });
 
     const estimate = runEstimate({
       level: 'ug',
@@ -82,13 +91,19 @@ describe('loan estimator math', () => {
 
     expect(estimate.totalLoan).toBe(6250);
     expect(estimate.totalTuition).toBe(tuitionPerSemester * 2);
-    expect(estimate.totalRemainingCost).toBe(Math.max(0, estimate.totalTuition - estimate.totalLoan));
+    expect(estimate.totalTuitionAndFees).toBe(tuitionAndFeesPerSemester * 2);
+    expect(estimate.totalRemainingCost).toBe(Math.max(0, estimate.totalTuitionAndFees - estimate.totalLoan));
   });
 
   it('matches key permutation for GRAD estimate totals', () => {
     expect(FIRST_GRAD_PROGRAM_ID).toBeTruthy();
 
     const tuitionPerSemester = computeTuitionPerSemester({
+      degree: FIRST_GRAD_PROGRAM_ID,
+      residency: 'NONRES',
+      creditsPerSemester: 8
+    });
+    const tuitionAndFeesPerSemester = computeTuitionAndFeesPerSemester({
       degree: FIRST_GRAD_PROGRAM_ID,
       residency: 'NONRES',
       creditsPerSemester: 8
@@ -106,6 +121,24 @@ describe('loan estimator math', () => {
 
     expect(estimate.totalLoan).toBe(18222);
     expect(estimate.totalTuition).toBe(tuitionPerSemester * 2);
-    expect(estimate.totalRemainingCost).toBe(Math.max(0, estimate.totalTuition - estimate.totalLoan));
+    expect(estimate.totalTuitionAndFees).toBe(tuitionAndFeesPerSemester * 2);
+    expect(estimate.totalRemainingCost).toBe(Math.max(0, estimate.totalTuitionAndFees - estimate.totalLoan));
+  });
+
+  it('returns non-zero federal loan for BAS undergraduate program', () => {
+    expect(FIRST_BAS_UG_PROGRAM_ID).toBeTruthy();
+
+    const estimate = runEstimate({
+      level: 'ug',
+      degree: FIRST_BAS_UG_PROGRAM_ID,
+      residency: 'RES',
+      dependencyStatus: 'independent',
+      completedCreditBand: 3,
+      selectedSemesterIds: ['fall', 'spring'],
+      creditsPerSemester: 6
+    });
+
+    expect(estimate).toBeTruthy();
+    expect(estimate.totalLoan).toBeGreaterThan(0);
   });
 });

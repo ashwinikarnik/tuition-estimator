@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "sync:programs": "node scripts/syncPrograms.mjs",
+    "sync:tuition": "node scripts/syncTuition.mjs",
     "mcp:programs": "node mcp/programs-mcp-server.mjs"
   },
   "dependencies": {

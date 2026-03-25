@@ -169,14 +169,14 @@
               <tr v-for="row in estimate.rows" :key="row.id">
                 <td>{{ row.semester }}</td>
                 <td>{{ row.credits }}</td>
-                <td>{{ formatCurrency(row.tuition) }}</td>
+                <td>{{ formatCurrency(row.tuitionAndFees) }}</td>
                 <td>({{ formatCurrency(row.loan) }})</td>
                 <td>{{ formatCurrency(row.remainingCost) }}</td>
               </tr>
               <tr class="totals-row">
                 <td>Total</td>
                 <td>{{ estimate.totalCredits }}</td>
-                <td>{{ formatCurrency(estimate.totalTuition) }}</td>
+                <td>{{ formatCurrency(estimate.totalTuitionAndFees) }}</td>
                 <td>({{ formatCurrency(estimate.totalLoan) }})</td>
                 <td>{{ formatCurrency(estimate.totalRemainingCost) }}</td>
               </tr>

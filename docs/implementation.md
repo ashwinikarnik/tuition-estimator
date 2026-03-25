@@ -1,25 +1,47 @@
 # Implementation Details
 
-## TUITION_RATES Migration to Program IDs
+## Tuition Snapshot Integration
 
-Updated `src/config/estimatorConfig.js` to generate `TUITION_RATES` dynamically from `src/config/programs.json`.
+The estimator now reads tuition data from a generated snapshot file instead of synthetic rate generation.
 
-### What changed
+### Stored data
 
-1. `TUITION_RATES` is now generated for every program in `programs.json`.
-2. Each program's `id` is used as the key in `TUITION_RATES`.
-3. `DEGREE_OPTIONS` continues to use `program.id` as dropdown value, so estimator selection and tuition lookup now use the same identifier.
+- File: `src/config/tuitionRates.json`
+- Shape: `rates[acadYear][programId][residency][semester]`
+- Supported values:
+  - `acadYear`: `2026`, `2027`
+  - `residency`: `RES`, `NONRES`
+  - `semester`: `fall`, `spring`, `summer`
+- Each semester stores:
+  - `tuitionByCredit` (`1..18`)
+  - `feesByCredit` (`1..18`)
+  - `totalByCredit` (`1..18`)
 
-### Generation approach
+### Runtime estimator behavior
 
-- For each valid program (`level` in `ug`/`grad`), rate tables are generated for:
-  - `RES` residency
-  - `NONRES` residency
-- Credit keys are generated from `1` to `18`.
-- A capped billable-credit model is used (`cappedCredit: 12`) to keep tuition schedules bounded and deterministic.
-- Per-credit base values vary by level (`ug` vs `grad`) and index within level so all programs receive stable but distinct tuition profiles.
+- `Estimated tuition` summary uses `tuitionByCredit`.
+- Results table `Tuition & fees` uses `totalByCredit`.
+- `Remaining cost` is computed from `tuition & fees - loan`.
+- Semester academic-year mapping:
+  - `fall -> 2026`
+  - `spring -> 2027`
+  - `summer -> 2027`
 
-### Outcome
+## Tuition Sync Script
 
-- The estimator no longer depends on legacy hardcoded degree keys (for example, `comm_ba`, `eng_ms`) to find tuition.
-- Any program present in `programs.json` now has a corresponding tuition entry in `TUITION_RATES`.
+- Script: `scripts/syncTuition.mjs`
+- Command: `yarn sync:tuition`
+- Endpoint: `https://tuitionasu-dev-asufactory1.acquia.asu.edu/tuition/js/get-results`
+- Request combinations per program:
+  - `acad_year` in `2026`, `2027`
+  - `residency` in `RES`, `NONRES`
+- Fixed query params:
+  - `campus=ONLNE`
+  - `credit_hr=`
+  - `honors=0`
+  - `include_summer=0`
+  - `admit_level=`
+  - `admit_term=`
+  - `program_fee=`
+
+If the endpoint returns an invalid payload (including literal `false`), sync fails with context so data issues are caught during refresh.
